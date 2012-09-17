@@ -15,7 +15,8 @@
     "url": "http://github.com/icodeforlove/node-request.git"
   },
   "devDependencies": {
-    "vows": "0.5.x"
+    "async": "0.1.22",
+    "colors": "0.6.0-1"
   },
   "scripts": {
     "test": "make test"
@@ -25,5 +26,11 @@
       "type": "MIT",
       "url": "http://github.com/icodeforlove/node-request/raw/master/LICENSE"
     }
-  ]
+  ],
+  "readme": "node-request\n===========\nA simple network request helper\n\nInstallation\n============== \n\n    $ npm install git://github.com/icodeforlove/node-request.git",
+  "_id": "request@0.0.1",
+  "dist": {
+    "shasum": "91c61ee209cb7d1084d71860a791503fcbb19321"
+  },
+  "_from": "git://github.com/icodeforlove/node-request.git"
 }
