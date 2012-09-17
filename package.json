@@ -1,0 +1,29 @@
+{
+  "name": "request",
+  "description": "network request helper methods",
+  "version": "0.0.1",
+  "directories": {
+    "lib": "./lib"
+  },
+  "main": "index.js",
+  "author": {
+    "name": "Chad Scira",
+    "email": "chadvscira@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/icodeforlove/node-request.git"
+  },
+  "devDependencies": {
+    "vows": "0.5.x"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/icodeforlove/node-request/raw/master/LICENSE"
+    }
+  ]
+}
