@@ -4,7 +4,9 @@ var async = require('async'),
 	Request = require('../lib/request'),
 	colors = require('colors');
 
-var request = new Request();
+var request = new Request({
+	headers: {'content-type': 'custom-default-content-type'}
+});
 
 function testRequest (name, method, args, callback) {
 	console.log('\n' + name.yellow, method, JSON.stringify(args));

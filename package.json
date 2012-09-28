@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "async": "0.1.22",
-    "form-data": "0.0.4"
+    "form-data": "0.0.4",
+    "underscore": "1.4.0"
   },
   "scripts": {
     "test": "make test"
