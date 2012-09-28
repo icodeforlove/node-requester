@@ -38,6 +38,10 @@ function testPostCustomContent (callback) {
 	testRequest('testPostCustomContent', 'post', ['http://localhost:1338', {data: {something: 'something'}, headers: {'content-type': 'something'}}], callback);
 }
 
+function testMultipart (callback) {
+	testRequest('testMultipart', 'multipart', ['http://localhost:1338', {data: {something: 'something'}}], callback);
+}
+
 
 setTimeout(function () {
 	async.series(
@@ -47,7 +51,8 @@ setTimeout(function () {
 			testPost,
 			testPostMixed,
 			testPostHeaders,
-			testPostCustomContent
+			testPostCustomContent,
+			testMultipart
 		],
 		function () {
 			echoServer.kill();
