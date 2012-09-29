@@ -2,11 +2,11 @@
 
 A simple network request helper that is geared towards crawling
 
-## Installation
+## installation
 
     $ npm install git://github.com/icodeforlove/node-request.git
 
-## Super simple to use
+## super simple to use
 
 ```javascript
 var Request = require('request'),
@@ -21,18 +21,54 @@ request.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
 });
 ```
 
-## the request object
+## request initialization
 
-it supports the following objects
-* data
-* headers
-* cookies
+```javascript
+var Request = ('request');
 
-and supports the following settings
-* encoding
-* dataType
+var request = new Request({
+	cookies: {},
+	headers: {},
+	timeout: 4000,
+	retries: 3,
+	encoding 'utf8',
+	// didRequestFail: null, (this has its own section)
+	// signRequest: null, (this has its own section)
+	dataType: 'raw' // or JSON
+});
+```
 
-## Posting
+if you initialize the request object with any of the above properties every request will default to those settings, you can over ride them on a per request basis
+
+```javascript
+var options = {
+	encoding: 'binary',
+	proxy: {ip: '127.0.0.1', port: 1337},
+	data: {foo: 'bar'},
+	cookies: {foo: 'bar'}
+};
+
+request.get(/* URL */, options, function (body) {
+	console.log(body)
+});
+```
+
+## request signatures
+
+you can create a custom request signature function like this
+
+```javascript
+var qs = require('querystring');
+
+var request = new Request({
+	signRequest: function (data) {
+		// do something with the data
+		return qs.stringify(data);
+	}
+});
+```
+
+## posting
 
 ```javascript
 request.post('http://localhost?something=123', {data: {foo: 'bar', bar: 'foo'}}, function (body) {
@@ -40,7 +76,7 @@ request.post('http://localhost?something=123', {data: {foo: 'bar', bar: 'foo'}},
 });
 ```
 
-## Multipart
+## multipart
 
 the multipart request works a little different, in the data object you can prefix a values key with '@' like this
 
