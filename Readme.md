@@ -34,7 +34,8 @@ var request = new Request({
 	encoding 'utf8',
 	// didRequestFail: null, (this has its own section)
 	// signRequest: null, (this has its own section)
-	dataType: 'raw' // or JSON
+	dataType: 'raw' // or JSON,
+	auth: {username: 'username', password: 'password'} // basic auth for all requests
 });
 ```
 
@@ -45,7 +46,8 @@ var options = {
 	encoding: 'binary',
 	proxy: {ip: '127.0.0.1', port: 1337},
 	data: {foo: 'bar'},
-	cookies: {foo: 'bar'}
+	cookies: {foo: 'bar'},
+	auth: {username: 'username', password: 'password'} // basic auth for request
 };
 
 request.get(/* URL */, options, function (body) {
