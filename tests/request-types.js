@@ -33,7 +33,7 @@ function testPostMixed (callback) {
 }
 
 function testPostHeaders (callback) {
-	testRequest('testPostHeaders', 'get', ['http://localhost:1338', {headers: {'user-agent': 'something'}}], callback);
+	testRequest('testPostHeaders', 'post', ['http://localhost:1338', {headers: {'user-agent': 'something'}}], callback);
 }
 
 function testPostCustomContent (callback) {

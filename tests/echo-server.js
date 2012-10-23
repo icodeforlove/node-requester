@@ -19,7 +19,7 @@ http.createServer(function (request, response) {
 			method: request.method,
 			body: data
 		}, null, '\t').grey);
-		response.end('OK');
+		response.end('{status: "OK"}');
 	});
 }).listen(port, host);
 
