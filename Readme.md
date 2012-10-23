@@ -34,7 +34,7 @@ var request = new Request({
 	encoding 'utf8',
 	// didRequestFail: null, (this has its own section)
 	// signRequest: null, (this has its own section)
-	dataType: 'raw' // or JSON,
+	dataType: 'RAW' // JSON or XML,
 	auth: {username: 'username', password: 'password'} // basic auth for all requests
 });
 ```
