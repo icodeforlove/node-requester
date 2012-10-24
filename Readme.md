@@ -4,7 +4,7 @@ A simple network request helper that is geared towards crawling
 
 ## installation
 
-    $ npm install git://github.com/icodeforlove/node-request.git
+    $ npm install git+ssh://git@github.com:icodeforlove/node-request.git
 
 ## super simple to use
 
