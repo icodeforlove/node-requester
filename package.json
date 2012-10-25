@@ -1,19 +1,25 @@
 {
-  "name": "request",
-  "description": "network request helper methods",
-  "version": "0.0.1",
-  "directories": {
-    "lib": "./lib"
-  },
+  "name": "node-request",
+  "version": "0.1.0",
+  "description": "swiss army knife for requests",
   "main": "index.js",
-  "author": {
-    "name": "Chad Scira",
-    "email": "chadvscira@gmail.com"
+  "directories": {
+    "example": "examples",
+    "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/icodeforlove/node-request.git"
+    "url": "git://github.com/icodeforlove/node-request.git"
   },
+  "keywords": [
+    "http",
+    "https",
+    "xml",
+    "json",
+    "proxies"
+  ],
+  "author": "Chad Scira",
+  "license": "MIT",
   "devDependencies": {
     "async": "0.1.22",
     "colors": "0.6.0-1"
@@ -24,19 +30,4 @@
     "underscore": "1.4.0",
     "xml2js": "0.2.0"
   },
-  "scripts": {
-    "test": "make test"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://github.com/icodeforlove/node-request/raw/master/LICENSE"
-    }
-  ],
-  "readme": "node-request\n===========\nA simple network request helper\n\nInstallation\n============== \n\n    $ npm install git://github.com/icodeforlove/node-request.git",
-  "_id": "request@0.0.1",
-  "dist": {
-    "shasum": "91c61ee209cb7d1084d71860a791503fcbb19321"
-  },
-  "_from": "git://github.com/icodeforlove/node-request.git"
 }
