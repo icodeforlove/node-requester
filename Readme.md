@@ -35,7 +35,8 @@ var request = new Request({
 	// didRequestFail: null, (this has its own section)
 	// signRequest: null, (this has its own section)
 	dataType: 'RAW' // JSON or XML,
-	auth: {username: 'username', password: 'password'} // basic auth for all requests
+	auth: {username: 'username', password: 'password'}, // basic auth for all requests
+	proxies: [{ip: '127.0.0.1', port: 1337}, {ip: '127.0.0.2', port: 1337}, {ip: '127.0.0.3', port: 1337}] // rotating proxy array
 });
 ```
 
@@ -73,7 +74,7 @@ var request = new Request({
 ## posting
 
 ```javascript
-request.post('http://localhost?something=123', {data: {foo: 'bar', bar: 'foo'}}, function (body) {
+request.post(/* URL */, {data: {foo: 'bar', bar: 'foo'}}, function (body) {
 	console.log(body)
 });
 ```
@@ -83,7 +84,7 @@ request.post('http://localhost?something=123', {data: {foo: 'bar', bar: 'foo'}},
 the multipart request works a little different, in the data object you can prefix a values key with '@' like this
 
 ```javascript
-request.multipart('http://localhost?something=123', {data: {'@filename': 'filepath', bar: 'foo'}}, function (body) {
+request.multipart(/* URL */, {data: {'@file': /* FILEPATH */, '@file2': /* FILEPATH */, bar: 'foo'}}, function (body) {
 	console.log(body)
 });
 ```
