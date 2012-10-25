@@ -1,5 +1,5 @@
 {
-  "name": "node-requester",
+  "name": "requester",
   "version": "0.1.0",
   "description": "swiss army knife for requests",
   "main": "index.js",

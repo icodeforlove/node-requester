@@ -4,7 +4,7 @@ A simple network request helper that is geared towards crawling. (a few keywords
 
 ## installation
 
-    $ npm install git@github.com:icodeforlove/node-requester.git
+    $ npm install requester
 
 ## super simple to use
 
