@@ -55,6 +55,20 @@ request.get(/* URL */, options, function (body) {
 	console.log(body)
 });
 ```
+## request objects
+
+they support the following properties
+* {Object} data 
+* {String} dataType
+* {Object} headers
+* {Object} cookies
+* {Object} proxy
+* {Object} auth
+* {String} encoding
+* {Number} timeout
+* {Number} retries
+* {Function} didRequestFail
+* {Function} signRequest
 
 ## request signatures
 
