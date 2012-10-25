@@ -1,1 +1,1 @@
-module.exports = exports = require('./lib/request');
+module.exports = exports = require('./lib/requester');
