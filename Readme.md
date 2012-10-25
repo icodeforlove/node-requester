@@ -1,6 +1,6 @@
 ## node-request
 
-A simple network request helper that is geared towards crawling
+A simple network request helper that is geared towards crawling. (a few keywords GZIP, XML, JSON, PROXIES)
 
 ## installation
 
