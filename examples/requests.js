@@ -1,24 +1,24 @@
 /*jshint node:true, strict:false*/
-var	Request = require('../lib/request');
+var	Requester = require('../lib/requester');
 
-var request = new Request();
+var requester = new Requester();
 
-request.get('http://www.google.com', function (data) {
+requester.get('http://www.google.com', function (data) {
 	//console.log(data);
 });
 
-request.post('http://www.google.com', function (data) {
+requester.post('http://www.google.com', function (data) {
 	//console.log(data);
 });
 
-request.get('http://chadscira.com', {data: {foo: 'bar'}, headers: {'user-agent': 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'}}, function (data) {
+requester.get('http://www.google.com', {data: {foo: 'bar'}, headers: {'user-agent': 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)'}}, function (data) {
 	//console.log(data);
 });
 
-request.get('http://chadscira.com', {data: {foo: 'bar'}, headers: {'user-agent': ''}}, function (data) {
+requester.get('http://www.google.com', {data: {foo: 'bar'}, headers: {'user-agent': ''}}, function (data) {
 	//console.log(data);
 });
 
-request.get('http://tumblruptime.apigee.com/json', {dataType: 'JSON'}, function (data) {
+requester.get('http://tumblruptime.apigee.com/json', {dataType: 'JSON'}, function (data) {
 	//console.log(data);
 });
