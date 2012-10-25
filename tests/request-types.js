@@ -1,10 +1,10 @@
 /*jshint node:true, strict:false*/
 var async = require('async'),
 	echoServer = require('child_process').fork('echo-server'),
-	Request = require('../lib/request'),
+	Requester = require('../lib/requester'),
 	colors = require('colors');
 
-var request = new Request({
+var requester = new Requester({
 	headers: {'content-type': 'custom-default-content-type'}
 });
 
@@ -13,7 +13,7 @@ function testRequest (name, method, args, callback) {
 	args.push(function () {
 		callback();
 	});
-	request[method].apply(request, args);
+	requester[method].apply(requester, args);
 }
 
 function testGet (callback) {

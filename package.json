@@ -1,5 +1,5 @@
 {
-  "name": "node-request",
+  "name": "node-requester",
   "version": "0.1.0",
   "description": "swiss army knife for requests",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/icodeforlove/node-request.git"
+    "url": "git://github.com/icodeforlove/node-requester.git"
   },
   "keywords": [
     "http",
@@ -29,5 +29,5 @@
     "form-data": "0.0.4",
     "underscore": "1.4.0",
     "xml2js": "0.2.0"
-  },
+  }
 }

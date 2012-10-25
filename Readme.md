@@ -4,19 +4,19 @@ A simple network request helper that is geared towards crawling. (a few keywords
 
 ## installation
 
-    $ npm install git@github.com:icodeforlove/node-request.git
+    $ npm install git@github.com:icodeforlove/node-requester.git
 
 ## super simple to use
 
 ```javascript
-var Request = require('request'),
-	request = new Request();
+var Requester = require('requester'),
+	requester = new Requester();
 
-request.get(/* URL */, function (body) {
+requester.get(/* URL */, function (body) {
 	console.log(body)
 });
 
-request.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
+requester.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
 	console.log(body)
 });
 ```
@@ -24,9 +24,9 @@ request.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
 ## request initialization
 
 ```javascript
-var Request = ('request');
+var Requester = ('requester');
 
-var request = new Request({
+var requester = new Requester({
 	cookies: {},
 	headers: {},
 	timeout: 4000,
@@ -51,7 +51,7 @@ var options = {
 	auth: {username: 'username', password: 'password'} // basic auth for request
 };
 
-request.get(/* URL */, options, function (body) {
+requester.get(/* URL */, options, function (body) {
 	console.log(body)
 });
 ```
@@ -77,7 +77,7 @@ you can create a custom request signature function like this
 ```javascript
 var qs = require('querystring');
 
-var request = new Request({
+var requester = new Requester({
 	signRequest: function (data) {
 		// do something with the data
 		return qs.stringify(data);
@@ -88,7 +88,7 @@ var request = new Request({
 ## posting
 
 ```javascript
-request.post(/* URL */, {data: {foo: 'bar', bar: 'foo'}}, function (body) {
+requester.post(/* URL */, {data: {foo: 'bar', bar: 'foo'}}, function (body) {
 	console.log(body)
 });
 ```
@@ -98,7 +98,7 @@ request.post(/* URL */, {data: {foo: 'bar', bar: 'foo'}}, function (body) {
 the multipart request works a little different, in the data object you can prefix a values key with '@' like this
 
 ```javascript
-request.multipart(/* URL */, {data: {'@file': /* FILEPATH */, '@file2': /* FILEPATH */, bar: 'foo'}}, function (body) {
+requester.multipart(/* URL */, {data: {'@file': /* FILEPATH */, '@file2': /* FILEPATH */, bar: 'foo'}}, function (body) {
 	console.log(body)
 });
 ```
