@@ -1,4 +1,4 @@
-## node-request
+## node-requester
 
 A simple network request helper that is geared towards crawling. (a few keywords GZIP, XML, JSON, PROXIES)
 
@@ -21,7 +21,7 @@ requester.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
 });
 ```
 
-## request initialization
+## initialization
 
 ```javascript
 var Requester = ('requester');
