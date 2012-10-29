@@ -1,6 +1,6 @@
 {
   "name": "requester",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "swiss army knife for requests",
   "main": "index.js",
   "directories": {
