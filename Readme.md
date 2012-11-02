@@ -69,6 +69,8 @@ they support the following properties
 * {Number} retries
 * {Function} didRequestFail
 * {Function} signRequest
+* {Boolean} follow
+* {Boolean} followMax
 
 ## request signatures
 
