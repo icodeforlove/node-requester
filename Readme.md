@@ -70,7 +70,7 @@ they support the following properties
 * {Function} didRequestFail
 * {Function} signRequest
 * {Boolean} follow
-* {Boolean} followMax
+* {Number} followMax
 
 ## request signatures
 
