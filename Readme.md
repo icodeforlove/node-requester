@@ -27,6 +27,7 @@ requester.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
 var Requester = ('requester');
 
 var requester = new Requester({
+	cookiejar: true, // basic cookie support, currently doesnt care about domain or path rules
 	cookies: {},
 	headers: {},
 	timeout: 4000,
