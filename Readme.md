@@ -73,6 +73,27 @@ they support the following properties
 * {Boolean} follow
 * {Number} followMax
 
+## request response checking
+
+this is a method that gets ran before the actual response callback gets run to ensure that the contents are actually what you're expecting, for example if the content rotates and you're looking for something special you can do
+
+```javascript
+requester.get(
+	/ * URL */,
+	{
+		didRequestFail: function (data) {
+			return !data.match(/something/);
+		},
+		retries: 10
+	},
+	function (data) {
+		console.log(data);
+	}
+);
+```
+
+this would request the url until it matches the string 'something' in the response (up to 10 attempts)
+
 ## request signatures
 
 you can create a custom request signature function like this
