@@ -13,11 +13,11 @@ var Requester = require('requester'),
 	requester = new Requester();
 
 requester.get(/* URL */, function (body) {
-	console.log(body)
+	console.log(this.statusCode, body);
 });
 
 requester.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
-	console.log(body)
+	console.log(this.statusCode, body);
 });
 ```
 
