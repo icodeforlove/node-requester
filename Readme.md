@@ -75,7 +75,7 @@ they support the following properties
 
 ## request response checking
 
-this is a method that gets ran before the actual response callback gets run to ensure that the contents are actually what you're expecting, for example if the content rotates and you're looking for something special you can do
+this is a method that gets ran before the actual response callback gets run to ensure that the content is what you're expecting, for example if the content rotates and you're looking for something special you can do
 
 ```javascript
 requester.get(
