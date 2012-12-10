@@ -13,11 +13,11 @@ var Requester = require('requester'),
 	requester = new Requester();
 
 requester.get(/* URL */, function (body) {
-	console.log(body)
+	console.log(this.statusCode, body);
 });
 
 requester.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
-	console.log(body)
+	console.log(this.statusCode, body);
 });
 ```
 
@@ -93,7 +93,7 @@ this allows you to do custom checking outside of requester to maintain the proxy
 
 ## request response checking
 
-this is a method that gets ran before the actual response callback gets run to ensure that the contents are actually what you're expecting, for example if the content rotates and you're looking for something special you can do
+this is a method that gets ran before the actual response callback gets run to ensure that the content is what you're expecting, for example if the content rotates and you're looking for something special you can do
 
 ```javascript
 requester.get(
