@@ -35,6 +35,7 @@ var requester = new Requester({
 	encoding 'utf8',
 	// didRequestFail: null, (this has its own section)
 	// signRequest: null, (this has its own section)
+	// processResponse: null, (this has its own section)
 	dataType: 'RAW' // JSON or XML,
 	auth: {username: 'username', password: 'password'}, // basic auth for all requests
 	proxies: [{ip: '127.0.0.1', port: 1337}, {ip: '127.0.0.2', port: 1337}, {ip: '127.0.0.3', port: 1337}] // rotating proxy array
@@ -70,8 +71,25 @@ they support the following properties
 * {Number} retries
 * {Function} didRequestFail
 * {Function} signRequest
+* {Function} processResponse
 * {Boolean} follow
 * {Number} followMax
+
+## proxies
+
+request objects support proxies but you also can add / remove them from the proxy rotation like this
+
+```javascript
+var requester = new Requester({
+	proxies: [{ip: 127.0.0.1, port: 1337}]
+});
+
+requester.addProxies({ip: 127.0.0.1, port: 1337}, {ip: 127.0.0.2, port: 1337}, {ip: 127.0.0.1, port: 1337, auth: {username: 'foo', password: 'bar'}});
+
+requester.removeProxies({ip: 127.0.0.1, port: 1337});
+```
+
+this allows you to do custom checking outside of requester to maintain the proxy list
 
 ## request response checking
 
@@ -93,6 +111,32 @@ requester.get(
 ```
 
 this would request the url until it matches the string 'something' in the response (up to 10 attempts)
+
+## response preprocessing
+
+lets say the server responds back with invalid JSON
+
+```javascript
+var json = {foo: 'bar'}
+```
+you can use a processResponse function to clean it up like this
+
+```javascript
+requester.get(
+	/* URL */,
+	{
+		dataType: 'JSON',
+		processResponse: function (body) {
+			return body.replace(/^var json = /, '');
+		}
+	},
+	function (body) {
+		console.log(body);
+	}
+);
+```
+
+this is really useful if you want to not repeat response cleanup code
 
 ## request signatures
 
