@@ -21,6 +21,8 @@ requester.get(/* URL */, /* REQUEST_OBJECT */, function (body) {
 });
 ```
 
+you can even use this simple [request translation tool](http://codepen.io/icodeforlove/full/nKuwa)
+
 ## initialization
 
 ```javascript
