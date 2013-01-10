@@ -77,6 +77,13 @@ they support the following properties
 * {Boolean} follow
 * {Number} followMax
 
+## debugging
+
+you can set debug to the following
+* 1 - outgoing requests 
+* 2 - outgoing requests and responses with headers
+* 3 - outgoing requests, responses with headers, and response body
+
 ## proxies
 
 request objects support proxies but you also can add / remove them from the proxy rotation like this

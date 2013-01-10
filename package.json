@@ -1,6 +1,6 @@
 {
   "name": "requester",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "swiss army knife for requests",
   "main": "index.js",
   "directories": {
@@ -21,13 +21,13 @@
   "author": "Chad Scira",
   "license": "MIT",
   "devDependencies": {
-    "async": "0.1.22",
-    "colors": "0.6.0-1"
+    "async": "0.1.22"
   },
   "dependencies": {
     "async": "0.1.22",
     "form-data": "0.0.4",
     "underscore": "1.4.0",
-    "xml2js": "0.2.0"
+    "xml2js": "0.2.0",
+    "colors": "0.6.0-1"
   }
 }
