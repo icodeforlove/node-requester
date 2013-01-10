@@ -76,6 +76,7 @@ they support the following properties
 * {Function} processResponse
 * {Boolean} follow
 * {Number} followMax
+* {Number} debug
 
 ## debugging
 
