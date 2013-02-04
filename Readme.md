@@ -10,7 +10,7 @@ A simple network request helper that is geared towards crawling. (a few keywords
 
 ```javascript
 var Requester = require('requester'),
-	requester = new Requester();
+	requester = new Requester({debug: 1});
 
 requester.get(/* URL */, function (body) {
 	console.log(this.statusCode, body);
