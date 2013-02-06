@@ -1,6 +1,6 @@
 {
   "name": "requester",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "swiss army knife for requests",
   "main": "index.js",
   "directories": {
@@ -21,7 +21,8 @@
   "author": "Chad Scira",
   "license": "MIT",
   "devDependencies": {
-    "async": "0.1.22"
+    "async": "0.1.22",
+    "vows": "1.2.7"
   },
   "dependencies": {
     "async": "0.1.22",
