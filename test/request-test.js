@@ -2,7 +2,7 @@ var vows = require('vows'),
 	assert = require('assert'),
 	Requester = require('requester'),
 	requester = new Requester({
-		headers: {'content-type': 'custom-default-content-type'},
+		//headers: {'content-type': 'application/x-www-form-urlencoded'},
 		debug: 0
 	}),
 	basePath = 'http://127.0.0.1:1338';
@@ -23,13 +23,13 @@ var request = function () {
 	};
 };
 
-exports.getRequests = vows.describe('Get Requests').addBatch({
+exports.getRequests = vows.describe('GET Requests').addBatch({
 	'Standard Request': {
 		topic: request('get', basePath + '?something=something'),
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"custom-default-content-type","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something","method":"GET","body":""}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something","method":"GET","body":""}');
 		}
 	},
 
@@ -38,18 +38,18 @@ exports.getRequests = vows.describe('Get Requests').addBatch({
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"custom-default-content-type","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something&somethingElse=somethingElse","method":"GET","body":""}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something&somethingElse=somethingElse","method":"GET","body":""}');
 		}
 	}
 });
 
-exports.postRequests = vows.describe('Post Requests').addBatch({
+exports.postRequests = vows.describe('POST Requests').addBatch({
 	'Standard Request': {
 		topic: request('post', basePath, {data: {something: 'something'}}),
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"custom-default-content-type","content-length":"19","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/","method":"POST","body":"something=something"}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"application/x-www-form-urlencoded","content-length":"19","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/","method":"POST","body":"something=something"}');
 		}
 	},
 	'Mixed Request': {
@@ -57,7 +57,7 @@ exports.postRequests = vows.describe('Post Requests').addBatch({
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"custom-default-content-type","content-length":"19","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something","method":"POST","body":"something=something"}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"application/x-www-form-urlencoded","content-length":"19","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something","method":"POST","body":"something=something"}');
 		}
 	},
 	'Headers': {
@@ -76,6 +76,31 @@ exports.postRequests = vows.describe('Post Requests').addBatch({
 			assert.equal(topic.request.statusCode, 200);
 			assert.equal(topic.details.body, 'something=something');
 			assert.equal(topic.details.headers['content-type'], 'something');
+		}
+	}
+});
+
+
+exports.putRequests = vows.describe('PUT Requests').addBatch({
+	'Standard Request': {
+		topic: request('put', basePath, {data: {something: 'something'}}),
+
+		'is response correct': function (topic) {
+			assert.equal(topic.request.statusCode, 200);
+			assert.equal(topic.details.method, 'PUT');
+			assert.equal(topic.details.body, 'something=something');
+		}
+	}
+});
+
+exports.delRequests = vows.describe('DELETE Requests').addBatch({
+	'Standard Request': {
+		topic: request('del', basePath + '/post/123'),
+
+		'is response correct': function (topic) {
+			assert.equal(topic.request.statusCode, 200);
+			assert.equal(topic.details.method, 'DELETE');
+			assert.equal(topic.details.url, '/post/123');
 		}
 	}
 });
