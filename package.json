@@ -33,6 +33,7 @@
     "promise-object": "~0.0.17"
   },
   "scripts": {
+    "pretest": "node ./test/echo-server.js &",
     "test": "vows --spec"
   }
 }
