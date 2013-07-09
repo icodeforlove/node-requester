@@ -77,9 +77,18 @@ exports.postRequests = vows.describe('POST Requests').addBatch({
 			assert.equal(topic.details.body, 'something=something');
 			assert.equal(topic.details.headers['content-type'], 'something');
 		}
+	},
+
+	'JSON Content': {
+		topic: request('post', basePath, {data: {something: 'something'}, headers: {'content-type': 'application/json'}}),
+
+		'is response correct': function (topic) {
+			assert.equal(topic.request.statusCode, 200);
+			assert.equal(topic.details.body, '{"something":"something"}');
+			assert.equal(topic.details.headers['content-type'], 'application/json');
+		}
 	}
 });
-
 
 exports.putRequests = vows.describe('PUT Requests').addBatch({
 	'Standard Request': {
