@@ -1,6 +1,6 @@
 var vows = require('vows'),
 	assert = require('assert'),
-	Requester = require('../lib/requester'),
+	Requester = require('../index'),
 	requester = new Requester({
 		//headers: {'content-type': 'application/x-www-form-urlencoded'},
 		debug: 0
