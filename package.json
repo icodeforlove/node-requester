@@ -1,6 +1,6 @@
 {
   "name": "requester",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "swiss army knife for requests",
   "main": "index.js",
   "directories": {
@@ -26,12 +26,13 @@
   },
   "dependencies": {
     "async": "~0.1.22",
-    "form-data": "~0.0.6",
-    "underscore": "~1.4.0",
-    "xml2js": "~0.2.0",
+    "bluebird": "^2.3.5",
     "colors": "~0.6.0-1",
-    "promise-object": "0.0.20",
-    "qs": "~0.5.3"
+    "form-data": "~0.0.6",
+    "promise-object": "^0.1.4",
+    "qs": "~0.5.3",
+    "underscore": "~1.4.0",
+    "xml2js": "~0.2.0"
   },
   "scripts": {
     "pretest": "node ./test/echo-server.js &",

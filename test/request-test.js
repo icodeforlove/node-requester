@@ -2,7 +2,7 @@ var vows = require('vows'),
 	assert = require('assert'),
 	Requester = require('../index'),
 	requester = new Requester({
-		//headers: {'content-type': 'application/x-www-form-urlencoded'},
+		headers: {'connection': 'keep-alive'},
 		debug: 0
 	}),
 	basePath = 'http://127.0.0.1:1338';
@@ -23,13 +23,31 @@ var request = function () {
 	};
 };
 
+exports.getRequests2 = vows.describe('GET Requests').addBatch({
+	'Standard Request': {
+		topic: function () {
+			var self = this;
+
+			requester.get(basePath + '?something=something').then(function (response) {
+				self.callback(null, response.body);
+			}, function (error) {
+				self.callback(error);
+			});
+		},
+
+		'is response correct': function (topic) {
+			assert.equal(topic, '{"headers":{"connection":"keep-alive","host":"127.0.0.1:1338"},"url":"/?something=something","method":"GET","body":""}');
+		}
+	}
+});
+
 exports.getRequests = vows.describe('GET Requests').addBatch({
 	'Standard Request': {
 		topic: request('get', basePath + '?something=something'),
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something","method":"GET","body":""}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"connection":"keep-alive","host":"127.0.0.1:1338"},"url":"/?something=something","method":"GET","body":""}');
 		}
 	},
 
@@ -38,7 +56,7 @@ exports.getRequests = vows.describe('GET Requests').addBatch({
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something&somethingElse=somethingElse","method":"GET","body":""}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"connection":"keep-alive","host":"127.0.0.1:1338"},"url":"/?something=something&somethingElse=somethingElse","method":"GET","body":""}');
 		}
 	}
 });
@@ -49,7 +67,7 @@ exports.postRequests = vows.describe('POST Requests').addBatch({
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"application/x-www-form-urlencoded","content-length":"19","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/","method":"POST","body":"something=something"}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"19","host":"127.0.0.1:1338"},"url":"/","method":"POST","body":"something=something"}');
 		}
 	},
 	'Mixed Request': {
@@ -57,7 +75,7 @@ exports.postRequests = vows.describe('POST Requests').addBatch({
 
 		'is response correct': function (topic) {
 			assert.equal(topic.request.statusCode, 200);
-			assert.equal(JSON.stringify(topic.details), '{"headers":{"content-type":"application/x-www-form-urlencoded","content-length":"19","host":"127.0.0.1:1338","connection":"keep-alive"},"url":"/?something=something","method":"POST","body":"something=something"}');
+			assert.equal(JSON.stringify(topic.details), '{"headers":{"connection":"keep-alive","content-type":"application/x-www-form-urlencoded","content-length":"19","host":"127.0.0.1:1338"},"url":"/?something=something","method":"POST","body":"something=something"}');
 		}
 	},
 	'Headers': {
