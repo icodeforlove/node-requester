@@ -1,4 +1,4 @@
-# DEPRECATED IN FAVOR OF [REQUEST](https://github.com/request/request)
+# DEPRECATED IN FAVOR OF [REQUEST](https://github.com/request/request) / [REQUEST PROMISE](https://github.com/request/request-promise)
 
 ## node-requester [![Build Status](https://travis-ci.org/icodeforlove/node-requester.png?branch=master)](https://travis-ci.org/icodeforlove/node-requester)
 
