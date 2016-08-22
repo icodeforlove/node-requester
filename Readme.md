@@ -1,3 +1,5 @@
+# DEPRECATED IN FAVOR OF [REQUEST](https://github.com/request/request)
+
 ## node-requester [![Build Status](https://travis-ci.org/icodeforlove/node-requester.png?branch=master)](https://travis-ci.org/icodeforlove/node-requester)
 
 A simple network request helper that is geared towards crawling. (a few keywords GZIP, XML, JSON, PROXIES)
